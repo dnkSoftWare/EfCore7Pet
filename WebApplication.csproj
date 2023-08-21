@@ -28,16 +28,25 @@
 
 
     <ItemGroup>
-      <Content Update="appsettings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
+      <Content Remove="obj\**" />
+      <Content Remove="appsettings.json" />
 
 
     </ItemGroup>
 
 
     <ItemGroup>
-      <Folder Include="obj\" />
+      <Compile Remove="obj\**" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <EmbeddedResource Remove="obj\**" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="obj\**" />
     </ItemGroup>
 
 </Project>
