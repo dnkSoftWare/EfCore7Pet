@@ -10,6 +10,7 @@ public class AutoMapperProfile: Profile
     {
         CreateMap<GenreCreationDTO, Genre>();
         CreateMap<ActorCreationDTO, Actor>();
+        CreateMap<CommentsCreationDTO, Comment>();
         CreateMap<MovieCreationDTO, Movie>()
             .ForMember(ent => ent.Genres,
                 dto => dto.MapFrom(field =>
