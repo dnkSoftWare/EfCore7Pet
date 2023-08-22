@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplication.DTOs;
 using WebApplication.Entities;
 
@@ -18,6 +19,12 @@ public class GenresController : ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Genre>>> GetGenre()
+    {
+        return await _context.Genres.ToListAsync();
+    }
+    
     [HttpPost]
     public async Task<ActionResult> Post(GenreCreationDTO genreDTO)
     {

@@ -43,24 +43,24 @@ namespace WebApplication.Entities.Seeding
             };
 
             modelBuilder.Entity<Movie>().HasData(avengers, spiderManNWH, spiderManSpiderVerse2);
-
+            
             var avengersComment = new Comment()
             {
-                Id = 2,
+                Id = 4,
                 Recommend = true,
                 Content = "Very good!!!",
                 MovieId = avengers.Id
             };
             var avengersComment2 = new Comment()
             {
-                Id = 3,
+                Id = 5,
                 Recommend = true,
                 Content = "I love it!",
                 MovieId = avengers.Id
             };
             var NWHComment = new Comment()
             {
-                Id = 4,
+                Id = 6,
                 Recommend = false,
                 Content = "They shouldn't have done that",
                 MovieId = spiderManNWH.Id
