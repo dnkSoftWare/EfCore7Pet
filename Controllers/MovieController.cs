@@ -19,6 +19,24 @@ public class MovieController: ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Movie>> GetMovie(int id)
+    {
+        var movie = await _context.Movies
+            .Include(x=>x.Comments)
+            .Include(x=>x.Genres)
+            .Include(x=>x.MovieActors.OrderBy(ma=>ma.Order))
+                .ThenInclude(x=>x.Actor)
+            .FirstOrDefaultAsync(x => x.Id == id);
+        if (movie is null)
+            return NotFound();
+        else
+        {
+            return Ok(movie);
+        }
+
+    }
+
     [HttpPost]
     public async Task<ActionResult> CreateMovie(MovieCreationDTO movieCreationDto)
     {

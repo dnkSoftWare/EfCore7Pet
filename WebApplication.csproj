@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <AssemblyName>WebApplication</AssemblyName>
         <RootNamespace>WebApplication</RootNamespace>
+        <UserSecretsId>3d9b9f1e-7446-433b-9996-b14b3ee8cfc7</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>

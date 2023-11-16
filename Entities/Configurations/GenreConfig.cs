@@ -10,5 +10,6 @@ public class GenreConfig: IEntityTypeConfiguration<Genre>
         var scienceFiction = new Genre() { Id = 5, Name = "Science Fiction" };
         var animation = new Genre() { Id = 6, Name = "Animation" };
         builder.HasData(scienceFiction, animation);
+        builder.HasIndex(p => p.Name).IsUnique();
     }
 }

@@ -7,9 +7,12 @@ namespace WebApplication;
 
 public sealed class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions options) : base()
+    public ApplicationDbContext()
     {
-        // Database.EnsureDeleted();
+    }
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
         Database.EnsureCreated();
     }
 
@@ -19,10 +22,6 @@ public sealed class ApplicationDbContext : DbContext
     public DbSet<Comment> MovieComments { get; set; }
     public DbSet<MovieActor> MovieActors { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=test_db1;Username=postgres;Password=vasya");
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
